@@ -14,5 +14,10 @@ make'''
         cpack(installation: 'InSearchPath', workingDir: 'build')
       }
     }
+    stage('') {
+      steps {
+        archiveArtifacts 'build/*.deb'
+      }
+    }
   }
 }
