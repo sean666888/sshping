@@ -18,7 +18,7 @@ make'''
       steps {
         sh '## /var/lib/jenkins/go/bin/github-release release --user sean666888 --repo sshping --tag $GIT_TAG_NAME --name $GIT_TAG_NAME --description "TO DO"'
         sh '''cd build
-/var/lib/jenkins/go/bin/github-release upload --user sean666888 --repo sshping --tag $GIT_TAG_NAME --name "sshping-debian-amd64" --file *.deb'''
+/var/lib/jenkins/go/bin/github-release upload --name "sshping-debian-amd64" --file *.deb --user sean666888 --repo sshping --tag $GIT_TAG_NAME'''
         archiveArtifacts 'build/*.deb'
       }
     }
