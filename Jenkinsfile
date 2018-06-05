@@ -14,10 +14,13 @@ make'''
         cpack(installation: 'InSearchPath', workingDir: 'build')
       }
     }
-    stage('') {
+    stage('error') {
       steps {
         archiveArtifacts 'build/*.deb'
       }
     }
+  }
+  environment {
+    GITHUB_TOKEN = 'git_pat'
   }
 }
