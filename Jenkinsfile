@@ -17,6 +17,12 @@ make'''
     stage('error') {
       steps {
         archiveArtifacts 'build/*.deb'
+        sh '''github-release upload \\
+    --user sean666888 \\
+    --repo sshping \\
+    --tag $GIT_TAG_NAME \\
+    --name "sshping-debian-amd64" \\
+    --file build/*.deb'''
       }
     }
   }
