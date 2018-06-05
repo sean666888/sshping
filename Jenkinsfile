@@ -21,6 +21,6 @@ make'''
     }
   }
   environment {
-    GITHUB_TOKEN = 'git_pat'
+    GITHUB_TOKEN = credentials('jenkins-git-pat')
   }
 }
