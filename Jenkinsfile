@@ -17,6 +17,12 @@ make'''
     stage('error') {
       steps {
         archiveArtifacts 'build/*.deb'
+        sh '''/var/lib/jenkins/go/bin/github-release release \\
+    --user sean666888 \\
+    --repo sshping \\
+    --tag $GIT_TAG_NAME \\
+    --name $GIT_TAG_NAME \\
+    --description "TO DO" \\'''
         sh '''/var/lib/jenkins/go/bin/github-release upload \\
     --user sean666888 \\
     --repo sshping \\
